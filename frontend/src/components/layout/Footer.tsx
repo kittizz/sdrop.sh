@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
                 </svg>
               </a>
               <a 
-                href="https://github.com" 
+                href="https://github.com/kittizz/sdrop.sh" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-primary transition-colors"

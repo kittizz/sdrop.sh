@@ -82,7 +82,7 @@ const DocPage = () => {
               Documentation
             </Link>
             <a 
-              href="https://github.com" 
+              href="https://github.com/kittizz/sdrop.sh" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
@@ -448,7 +448,7 @@ const DocPage = () => {
                 SDROP is open source. Explore the code, contribute, or report issues on GitHub.
               </p>
               <a 
-                href="https://github.com" 
+                href="https://github.com/kittizz/sdrop.sh" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-primary hover:text-primary/80 transition-colors"

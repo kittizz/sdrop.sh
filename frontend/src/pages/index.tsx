@@ -80,7 +80,7 @@ export default function Home() {
                 FAQ
               </Link>
               <a
-                href="https://github.com"
+                href="https://github.com/kittizz/sdrop.sh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors"
