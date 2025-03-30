@@ -1,7 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  transpilePackages: ['three', '@react-three/fiber', '@react-three/drei'],
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
+    output: 'standalone',
+    swcMinify: true,
+
+    reactStrictMode: true,
+    productionBrowserSourceMaps: false,
+    /* config options here */
 }
 
-module.exports = nextConfig
+export default nextConfig

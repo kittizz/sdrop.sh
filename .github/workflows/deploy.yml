@@ -1,0 +1,47 @@
+name: Deploy
+
+on:
+    workflow_dispatch:
+        inputs:
+            logLevel:
+                description: 'Log level'
+                required: true
+                default: 'warning'
+            tags:
+                description: 'Test scenario tags'
+    push:
+        branches: [main]
+
+jobs:
+    build:
+        name: build
+        permissions:
+            id-token: write
+            contents: write
+        runs-on: [ubuntu-latest]
+
+        steps:
+            - uses: actions/checkout@v2
+              name: Check out code
+
+            - uses: mr-smithers-excellent/docker-build-push@v5
+              name: Build & push Docker image
+              with:
+                  image: xver/xver-cloud
+                  tags: ${{ github.sha }}, latest
+                  registry: registry.xver.cloud
+                  dockerfile: ./frontend/Dockerfile
+                  username: ${{ secrets.DOCKER_USERNAME }}
+                  password: ${{ secrets.DOCKER_PASSWORD }}
+    deploy:
+        name: deploy
+        needs: build
+        runs-on: [ubuntu-latest]
+        steps:
+            - name: deploy
+              uses: fjogeleit/http-request-action@master
+              with:
+                  url: ${{ secrets.WEBHOOK_URL }}
+                  method: 'POST'
+                  preventFailureOnNoResponse: 'true'
+
